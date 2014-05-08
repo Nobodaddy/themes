@@ -235,15 +235,13 @@
 					{/if}
 				{/if}
 			{/if}
-			{if $conditions AND $cms_id}
-				<div {if $PS_EU_PAYMENT_API}data-remove-if-js{/if}>
-					<p class="carrier_title">{l s='Terms of service'}</p>
-					<p class="checkbox">
-						<input type="checkbox" name="cgv" id="cgv" value="1" {if $checkedTOS}checked="checked"{/if} />
-						<label for="cgv">{l s='I agree to the terms of service and will adhere to them unconditionally.'}</label>
-						<a href="{$link_conditions|escape:'html':'UTF-8'}" class="iframe" rel="nofollow">{l s='(Read the Terms of Service)'}</a>
-					</p>
-				</div>
+			{if $conditions AND $cms_id AND !$PS_EU_PAYMENT_API}
+				<p class="carrier_title">{l s='Terms of service'}</p>
+				<p class="checkbox">
+					<input type="checkbox" name="cgv" id="cgv" value="1" {if $checkedTOS}checked="checked"{/if} />
+					<label for="cgv">{l s='I agree to the terms of service and will adhere to them unconditionally.'}</label>
+					<a href="{$link_conditions|escape:'html':'UTF-8'}" class="iframe" rel="nofollow">{l s='(Read the Terms of Service)'}</a>
+				</p>
 			{/if}
 		</div> <!-- end delivery_options_address -->
 		{if !$opc}
