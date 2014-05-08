@@ -178,7 +178,7 @@
 									</span>
 								{/if}
 							</span>
-							{* bootstrap-german: Product Availability *}
+							{* bootstrap-legal: Product Availability *}
 							{hook h="displayProductAvailability" id_product=$product.id_product}
 						{/if}
 					{/if}

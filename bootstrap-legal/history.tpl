@@ -98,7 +98,7 @@
 							{/if}
 		                        <i class="icon-refresh"></i>{l s='Reorder'}
 							</a>
-							{* bootstrap-german: Reorder *}
+							{* bootstrap-legal: Reorder *}
 							{hook h="displayReorder"}
 						</td>
 					</tr>

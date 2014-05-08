@@ -140,7 +140,7 @@
 									</span>
 								{/if}
 							</p>
-							{* bootstrap-german: Product Availability *}
+							{* bootstrap-legal: Product Availability *}
 							{hook h="displayProductAvailability" id_product=$product->id}
 							<div class="clearfix">
 								<div class="button-container">
