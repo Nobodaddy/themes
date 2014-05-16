@@ -68,11 +68,11 @@
 									{hook h="displayProductPriceBlock" id_product=$product.id_product type="price"}
 									<meta itemprop="priceCurrency" content="{$priceDisplay}" />
 									{if isset($product.specific_prices) && $product.specific_prices && isset($product.specific_prices.reduction) && $product.specific_prices.reduction > 0}
+										{* bootstrap-legal: Price Addons *}
+										{hook h="displayProductPriceBlock" id_product=$product.id_product type="old_price"}
 										<span class="old-price product-price">
 											{displayWtPrice p=$product.price_without_reduction}
 										</span>
-										{* bootstrap-legal: Price Addons *}
-										{hook h="displayProductPriceBlock" id_product=$product.id_product type="old_price"}
 										{if $product.specific_prices.reduction_type == 'percentage'}
 											<span class="price-percent-reduction">-{$product.specific_prices.reduction * 100}%</span>
 										{/if}
@@ -113,11 +113,11 @@
 							{hook h="displayProductPriceBlock" id_product=$product.id_product type="price"}
 							<meta itemprop="priceCurrency" content="{$priceDisplay}" />
 							{if isset($product.specific_prices) && $product.specific_prices && isset($product.specific_prices.reduction) && $product.specific_prices.reduction > 0}
+								{* bootstrap-legal: Price Addons *}
+								{hook h="displayProductPriceBlock" id_product=$product.id_product type="old_price"}
 								<span class="old-price product-price">
 									{displayWtPrice p=$product.price_without_reduction}
 								</span>
-								{* bootstrap-legal: Price Addons *}
-								{hook h="displayProductPriceBlock" id_product=$product.id_product type="old_price"}
 								{if $product.specific_prices.reduction_type == 'percentage'}
 									<span class="price-percent-reduction">-{$product.specific_prices.reduction * 100}%</span>
 								{/if}

@@ -246,7 +246,7 @@
 		<div class="pb-right-column col-xs-12 col-sm-4 col-md-3">
 			{if ($product->show_price && !isset($restricted_country_mode)) || isset($groups) || $product->reference || (isset($HOOK_PRODUCT_ACTIONS) && $HOOK_PRODUCT_ACTIONS)}
 			<!-- add to cart form-->
-			<form id="buy_block" {if $PS_CATALOG_MODE && !isset($groups) && $product->quantity > 0}class="hidden"{/if} action="{$link->getPageLink('cart')|escape:'html':'UTF-8'}" method="post">
+			<form id="buy_block"{if $PS_CATALOG_MODE && !isset($groups) && $product->quantity > 0} class="hidden"{/if} action="{$link->getPageLink('cart')|escape:'html':'UTF-8'}" method="post">
 				<!-- hidden datas -->
 				<p class="hidden">
 					<input type="hidden" name="token" value="{$static_token}" />
@@ -278,10 +278,10 @@
 								</p>
 								<p id="old_price"{if (!$product->specificPrice || !$product->specificPrice.reduction) && $group_reduction == 0} class="hidden"{/if}>
 									{if $priceDisplay >= 0 && $priceDisplay <= 2}
-										<span id="old_price_display">{if $productPriceWithoutReduction > $productPrice}{convertPrice price=$productPriceWithoutReduction}{/if}</span>
-										<!-- {if $tax_enabled && $display_tax_label == 1}{if $priceDisplay == 1}{l s='tax excl.'}{else}{l s='tax incl.'}{/if}{/if} -->
 										{* bootstrap-legal: Price Addons *}
 										{hook h="displayProductPriceBlock" id_product=$product->id type="old_price"}
+										<span id="old_price_display">{if $productPriceWithoutReduction > $productPrice}{convertPrice price=$productPriceWithoutReduction}{/if}</span>
+										<!-- {if $tax_enabled && $display_tax_label == 1}{if $priceDisplay == 1}{l s='tax excl.'}{else}{l s='tax incl.'}{/if}{/if} -->
 									{/if}
 								</p>
 								{if $priceDisplay == 2}
