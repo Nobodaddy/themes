@@ -235,6 +235,7 @@
 					{/if}
 				{/if}
 			{/if}
+			{* bootstrap-legal: Hide if EU API enabled *}
 			{if $conditions AND $cms_id AND !$PS_EU_PAYMENT_API}
 				<p class="carrier_title">{l s='Terms of service'}</p>
 				<p class="checkbox">
