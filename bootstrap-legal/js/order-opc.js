@@ -873,7 +873,12 @@ function bindInputs()
 	});
 	
 	// Term Of Service (TOS)
-	$('#cgv').click(function() {
+	$('#cgv').on('click', function(e){
+		/*
+		* Legal
+		* Dont execute if EU API enabled
+		* 20140514 
+		*/
 		if (!PS_EU_PAYMENT_API)
 		{
 			updatePaymentMethodsDisplay();
