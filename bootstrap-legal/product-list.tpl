@@ -124,6 +124,8 @@
 									<span class="price-percent-reduction">-{$product.specific_prices.reduction * 100}%</span>
 								{/if}
 							{/if}
+							{* bootstrap-legal: Price Addons *}
+							{hook h="displayProductPriceBlock" product=$product type="unit_price"}
 						{/if}
 					</div>
 					{/if}
