@@ -184,6 +184,8 @@
 							</span>
 							{* bootstrap-legal: Product Availability *}
 							{hook h="displayProductAvailability" product=$product}
+							{* bootstrap-legal: Price Addons *}
+							{hook h="displayProductPriceBlock" product=$product type="weight"}
 						{/if}
 					{/if}
 				</div>
