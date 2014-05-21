@@ -140,8 +140,8 @@
 									</span>
 								{/if}
 							</p>
-							{* bootstrap-legal: Product Availability *}
-							{hook h="displayProductAvailability" id_product=$product->id}
+							{* bootstrap-legal: Product DeliveryTime *}
+							{hook h="displayProductDeliveryTime" id_product=$product->id}
 							<div class="clearfix">
 								<div class="button-container">
 									{if (!$product->hasAttributes() OR (isset($add_prod_display) AND ($add_prod_display == 1))) AND $product->minimal_quantity == 1 AND $product->customizable != 2 AND !$PS_CATALOG_MODE}
