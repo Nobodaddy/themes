@@ -80,8 +80,6 @@
 						<div class="prices-container">
 							{if isset($product->show_price) && $product->show_price && !isset($restricted_country_mode) && !$PS_CATALOG_MODE}
 								<span class="price product-price">{convertPrice price=$product->getPrice($taxes_behavior)}</span>
-								{* bootstrap-legal: Price Addons *}
-								{hook h="displayProductPriceBlock" id_product=$product->id type="price"}
 								{if isset($product->specificPrice) && $product->specificPrice}
 									{if {$product->specificPrice.reduction_type == 'percentage'}}
 										<span class="old-price product-price">
@@ -99,8 +97,10 @@
 										</span>
 									{/if}
 									{* bootstrap-legal: Price Addons *}
-									{hook h="displayProductPriceBlock" id_product=$product->id type="old_price"}
+									{hook h="displayProductPriceBlock" product=$product type="old_price"}
 								{/if}
+								{* bootstrap-legal: Price Addons *}
+								{hook h="displayProductPriceBlock" product=$product type="price"}
 								{if $product->on_sale}
 									{elseif $product->specificPrice AND $product->specificPrice.reduction}
 										<div class="product_discount">
@@ -113,7 +113,7 @@
 											&nbsp;{convertPrice price=$unit_price} {l s='per %s' sprintf=$product->unity|escape:'html':'UTF-8'}
 										</span>
 										{* bootstrap-legal: Price Addons *}
-										{hook h="displayProductPriceBlock" id_product=$product->id type="unit_price"}
+										{hook h="displayProductPriceBlock" product=$product type="unit_price"}
 									{else}
 								{/if}
 							{/if}
@@ -141,7 +141,9 @@
 								{/if}
 							</p>
 							{* bootstrap-legal: Product DeliveryTime *}
-							{hook h="displayProductDeliveryTime" id_product=$product->id}
+							{hook h="displayProductDeliveryTime" product=$product}
+							{* bootstrap-legal: Price Addons *}
+							{hook h="displayProductPriceBlock" product=$product type="weight"}
 							<div class="clearfix">
 								<div class="button-container">
 									{if (!$product->hasAttributes() OR (isset($add_prod_display) AND ($add_prod_display == 1))) AND $product->minimal_quantity == 1 AND $product->customizable != 2 AND !$PS_CATALOG_MODE}
