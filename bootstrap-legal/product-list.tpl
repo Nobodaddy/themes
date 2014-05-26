@@ -93,6 +93,11 @@
 							</span>
 						{/if}
 					</div>
+						
+					{* bootstrap-legal: Product DeliveryTime *}
+					{hook h="displayProductDeliveryTime" product=$product}
+					{* bootstrap-legal: Price Addons *}
+					{hook h="displayProductPriceBlock" product=$product type="weight"}
 				</div>
 				<div class="right-block">
 					<h5 itemprop="name">
@@ -111,8 +116,6 @@
 							<span itemprop="price" class="price product-price">
 								{if !$priceDisplay}{convertPrice price=$product.price}{else}{convertPrice price=$product.price_tax_exc}{/if}
 							</span>
-							{* bootstrap-legal: Price Addons *}
-							{hook h="displayProductPriceBlock" product=$product type="price"}
 							<meta itemprop="priceCurrency" content="{$priceDisplay}" />
 							{if isset($product.specific_prices) && $product.specific_prices && isset($product.specific_prices.reduction) && $product.specific_prices.reduction > 0}
 								{* bootstrap-legal: Price Addons *}
@@ -124,6 +127,9 @@
 									<span class="price-percent-reduction">-{$product.specific_prices.reduction * 100}%</span>
 								{/if}
 							{/if}
+							
+							{* bootstrap-legal: Price Addons *}
+							{hook h="displayProductPriceBlock" product=$product type="price"}
 							{* bootstrap-legal: Price Addons *}
 							{hook h="displayProductPriceBlock" product=$product type="unit_price"}
 						{/if}
@@ -182,10 +188,6 @@
 									</span>
 								{/if}
 							</span>
-							{* bootstrap-legal: Product DeliveryTime *}
-							{hook h="displayProductDeliveryTime" product=$product}
-							{* bootstrap-legal: Price Addons *}
-							{hook h="displayProductPriceBlock" product=$product type="weight"}
 						{/if}
 					{/if}
 				</div>
